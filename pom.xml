@@ -24,6 +24,7 @@
         <fastjson.version>1.2.62</fastjson.version>
         <mybatis.version>2.1.1</mybatis.version>
         <log4j.version>1.2.17</log4j.version>
+        <japidocs.version>1.4</japidocs.version>
     </properties>
 
     <dependencies>
@@ -104,6 +105,11 @@
             <artifactId>core</artifactId>
             <version>3.3.3</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.github.yedaxia</groupId>
+            <artifactId>japidocs</artifactId>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -135,6 +141,12 @@
                 <groupId>log4j</groupId>
                 <artifactId>log4j</artifactId>
                 <version>${log4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.yedaxia</groupId>
+                <artifactId>japidocs</artifactId>
+                <version>${japidocs.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

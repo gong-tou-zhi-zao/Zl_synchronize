@@ -51,7 +51,7 @@ public class MyTest {
 
     @Test
     void test2(){
-        String str = "2020-05-29 11:18:11";
+        String str = "2020-06-29 11:18:11";
         Timestamp time = Timestamp.valueOf(str);
         Long timeLong = time.getTime();
         log.info(timeLong.toString());
