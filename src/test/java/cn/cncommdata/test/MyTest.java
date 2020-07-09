@@ -51,7 +51,7 @@ public class MyTest {
 
     @Test
     void test2(){
-        String str = "2020-06-29 11:18:11";
+        String str = "2020-07-08 10:13:01";
         Timestamp time = Timestamp.valueOf(str);
         Long timeLong = time.getTime();
         log.info(timeLong.toString());
@@ -61,5 +61,12 @@ public class MyTest {
         Date time = new Date();
         String strn = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(time);
         log.info(strn);
+    }
+
+    @Test
+    void test4(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");//要转换的时间格式
+        String date = sdf.format(1594178985403L);
+        log.info(date);
     }
 }
