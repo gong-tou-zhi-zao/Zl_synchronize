@@ -11,6 +11,7 @@ import javax.annotation.PostConstruct;
 import java.util.Map;
 
 /**
+ * 当一个类实现了这个接口（ApplicationContextAware）之后，这个类就可以方便获得ApplicationContext中的所有bean
  * Context
  * 这里是在应用启动的时候，加载spring容器中所有InspectionSolver类型的处理器，
  * 放到InspectionSolverChooser的map容器中。注意是InspectionSolver类型，

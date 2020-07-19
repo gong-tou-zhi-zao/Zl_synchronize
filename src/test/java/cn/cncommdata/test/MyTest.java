@@ -1,12 +1,25 @@
 package cn.cncommdata.test;
+import java.lang.reflect.Field;
+import	java.util.Calendar;
 
+import cn.cncommdata.entity.CastOutput;
+import cn.cncommdata.enums.EnumUtils;
+import cn.cncommdata.enums.IOTConstants;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.util.ReflectUtil;
+import cn.hutool.crypto.SecureUtil;
+import cn.hutool.crypto.digest.DigestAlgorithm;
+import cn.hutool.crypto.digest.Digester;
 import cn.hutool.extra.qrcode.QrCodeUtil;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.math.BigInteger;
+import java.security.MessageDigest;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -68,5 +81,32 @@ public class MyTest {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");//要转换的时间格式
         String date = sdf.format(1594178985403L);
         log.info(date);
+    }
+
+    /**
+     * 智能制造平台密码加密规则
+     */
+    @Test
+    void MD5(){
+        String a1 = SecureUtil.md5("Tstack@Gsd#");
+        String strUpper = a1.toUpperCase();
+        String a2 = SecureUtil.md5(strUpper);
+        log.info(a2.toUpperCase());
+    }
+
+    @Test
+    void test5() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Field f = ReflectUtil.getField(CastOutput.class, "alloy");
+        Class a = null;
+        if (1 == 1) {
+            IOTConstants.IOTEnum e = EnumUtils.valueOf(IOTConstants.IOTEnum.class, 100, IOTConstants.IOTEnum.class.getMethod("getCode"));
+            a = e.getEnumClass();
+        }
+        if (null != a) {
+            Enum<?> e1 = EnumUtils.valueOf(a, 20, a.getMethod("getCode"));
+            Method m = e1.getClass().getMethod("getDescription");
+            String result = (String) m.invoke(e1);
+            log.info(result);
+        }
     }
 }
