@@ -11,7 +11,7 @@ refresh_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X3R5cGUiOiJwaG9u
 
 ### 2
 ### 中铝报表接口：铸轧生产产量
-GET {{baseUrl}}zlreport/data/list/zhuzha?form_id=1240468533985546252&condition={}&page_num=1&page_size=1000
+GET {{baseUrl}}zlreport/data/list/zhuzha?form_id=1240468533985546252&condition={"select_month":"2020-7"}&page_num=1&page_size=1000
 Accept: */*
 Cache-Control: no-cache
 tenant_id: 1218734876489027584
@@ -22,7 +22,7 @@ refresh_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X3R5cGUiOiJwaG9u
 
 ### 3
 ### 中铝报表接口：冷轧生产产量
-GET {{baseUrl}}zlreport/data/list/lengzha?form_id=1240468533985546251&condition={}&page_num=1&page_size=1000
+GET {{baseUrl}}zlreport/data/list/lengzha?form_id=1240468533985546251&condition={"select_month":"2020-7"}&page_num=1&page_size=1000
 Accept: */*
 Cache-Control: no-cache
 tenant_id: 1218734876489027584
@@ -56,6 +56,13 @@ refresh_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X3R5cGUiOiJwaG9u
 ### 6
 ### 中铝报表接口：中通华提供给nc的接口,生产产量查询汇总报表。
 GET {{baseUrl}}zlreport/data/list/report?condition={"select_time":"1590722291000-1593400691000"}
+Accept: */*
+Cache-Control: no-cache
+###
+
+### 7
+### IOT大屏数据接口
+GET http://172.16.5.10/glserver_new/DataHandler.ashx
 Accept: */*
 Cache-Control: no-cache
 ###

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class ChangeShippingSolver extends InspectionSolver {
     @Override
     public void solve(Long orderId, Long userId) {
-        log.info("订单{}开始进行{}了。。", orderId,
+        log.info("订单{}开始进行{}了....", orderId,
                 InspectionConstant.BATCH_CHANGE_SHIPPING.getMessage());
     }
 

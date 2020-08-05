@@ -1,25 +1,22 @@
 package cn.cncommdata.test;
-import java.lang.reflect.Field;
-import	java.util.Calendar;
 
 import cn.cncommdata.entity.CastOutput;
 import cn.cncommdata.enums.EnumUtils;
 import cn.cncommdata.enums.IOTConstants;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.lang.Snowflake;
+import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.ReflectUtil;
 import cn.hutool.crypto.SecureUtil;
-import cn.hutool.crypto.digest.DigestAlgorithm;
-import cn.hutool.crypto.digest.Digester;
 import cn.hutool.extra.qrcode.QrCodeUtil;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.math.BigInteger;
-import java.security.MessageDigest;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -108,5 +105,23 @@ public class MyTest {
             String result = (String) m.invoke(e1);
             log.info(result);
         }
+    }
+
+    @Test
+    void test6() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, InterruptedException {
+//        String year = "2020";
+//        int i = 0;
+//        while (i<30){
+//            long now = System.currentTimeMillis();
+//            int ran = (int)((Math.random()*9+1)*10);
+//            System.out.println(year+now+ran);
+//            Thread.sleep(3000);
+//            i++;
+//        }
+        //参数1为终端IDp
+        //参数2为数据中心ID
+        Snowflake snowflake = IdUtil.getSnowflake(1, 1);
+        long id = snowflake.nextId();
+        log.info(Long.toString(id));
     }
 }
